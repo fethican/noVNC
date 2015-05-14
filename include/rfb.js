@@ -215,7 +215,7 @@ var RFB;
         var rmode = this._display.get_render_mode();
         if (Websock_native) {
             Util.Info("Using native WebSockets");
-            this._updateState('loaded', 'noVNC ready: native WebSockets, ' + rmode);
+            this._updateState('loaded', 'Please enter the password provided in your email to establish Remote Desktop Connection.');
         } else {
             Util.Warn("Using web-socket-js bridge.  Flash version: " + Util.Flash.version);
             if (!Util.Flash || Util.Flash.version < 9) {
@@ -1011,7 +1011,10 @@ var RFB;
             if (this._encrypt) {
                 this._updateState('normal', 'Connected (encrypted) to: ' + this._fb_name);
             } else {
-                this._updateState('normal', 'Connected (unencrypted) to: ' + this._fb_name);
+                //this._updateState('normal', 'Connected (unencrypted) to: ' + this._fb_name);
+                var host=fb_name.substring(0,fb_name.indexOf(":"));
+                var user=fb_name.substring(fb_name.indexOf("(")+1,fb_name.indexOf(")"));
+                this._updateState('normal', 'Remote Desktop Connection to ' + host + ' as ' + user);
             }
         },
 

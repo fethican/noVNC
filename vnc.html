@@ -12,7 +12,7 @@
     Connect parameters are provided in query string:
         http://example.com/?host=HOST&port=PORT&encrypt=1&true_color=1
     -->
-    <title>noVNC</title>
+    <title>Remote Desktop Connection</title>
 
     <meta charset="utf-8">
 
@@ -86,7 +86,7 @@
             </div>
         </div>
 
-        <div id="noVNC_status"></div>
+        <div id="noVNC_status">Loading</div>
 
         <!--noVNC Buttons-->
         <div class="noVNC-buttons-right">
@@ -158,16 +158,15 @@
                     <li><input id="noVNC_clip" type="checkbox"> Clip to Window</li>
                     <li><input id="noVNC_shared" type="checkbox"> Shared Mode</li>
                     <li><input id="noVNC_view_only" type="checkbox"> View Only</li>
-                    <hr>
                     <li><input id="noVNC_path" type="input" value="websockify"> Path</li>
-                    <li><label>
+                    <!--<li><label>
                         <select id="noVNC_resize" name="vncResize">
                             <option value="off">None</option>
                             <option value="scale">Local Scaling</option>
                             <option value="downscale">Local Downscaling</option>
                             <option value="remote">Remote Resizing</option>
                         </select> Scaling Mode</label>
-                    </li>
+                    </li>-->
                     <li><input id="noVNC_repeaterID" type="input" value=""> Repeater ID</li>
                     <hr>
                     <!-- Stylesheet selection dropdown -->
@@ -202,11 +201,10 @@
 
 
     <div id="noVNC_screen">
-        <h1 id="noVNC_logo"><span>no</span><br />VNC</h1>
 
         <!-- HTML5 Canvas -->
         <div id="noVNC_container">
-            <canvas id="noVNC_canvas" width="0" height="0">
+            <canvas id="noVNC_canvas" width="640px" height="20px">
                         Canvas not supported.
             </canvas>
         </div>
