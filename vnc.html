@@ -14,7 +14,7 @@
     or the fragment:
         http://example.com/#host=HOST&port=PORT&encrypt=1&true_color=1
     -->
-    <title>noVNC</title>
+    <title>Remote Desktop Connection</title>
 
     <meta charset="utf-8" />
 
@@ -88,7 +88,7 @@
             </div>
         </div>
 
-        <div id="noVNC_status"></div>
+        <div id="noVNC_status">Please enter the password provided in your email to establish Remote Desktop Connection.</div>
 
         <!--noVNC Buttons-->
         <div class="noVNC_buttons_right">
@@ -199,7 +199,8 @@
                 <li><label><strong>Host: </strong><input id="noVNC_setting_host" /></label></li>
                 <li><label><strong>Port: </strong><input id="noVNC_setting_port" /></label></li>
                 <li><label><strong>Password: </strong><input id="noVNC_setting_password" type="password" /></label></li>
-                <li><label><strong>Token: </strong><input id="noVNC_setting_token" /></label></li>
+		<!--<li><label><strong>Token: </strong><input id="noVNC_setting_token" /></label></li>-->
+		<input type="hidden" id="noVNC_setting_token" />
                 <li><input id="noVNC_connect_button" type="button" value="Connect" /></li>
             </ul>
         </div>
@@ -212,7 +213,7 @@
 
         <!-- HTML5 Canvas -->
         <div id="noVNC_screen">
-            <canvas id="noVNC_canvas" width="0" height="0">
+            <canvas id="noVNC_canvas" width="640px" height="20px">
                         Canvas not supported.
             </canvas>
         </div>

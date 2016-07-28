@@ -1260,7 +1260,9 @@ var UI;
 
         // Display the desktop name in the document title
         updateDocumentTitle: function(rfb, name) {
-            document.title = name + " - noVNC";
+	    var host="";
+	    host=name.substring(0,name.indexOf(":"));
+	    document.title = "Remote Desktop Connection to" + host;
         },
 
         //Helper to add options to dropdown.
