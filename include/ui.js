@@ -701,7 +701,7 @@ var UI;
 
             var host = $D('noVNC_setting_host').value;
             var port = $D('noVNC_setting_port').value;
-            var password = $D('noVNC_setting_password').value;
+            var password = $D('noVNC_setting_password').value.trim();
             var token = $D('noVNC_setting_token').value;
             var path = $D('noVNC_setting_path').value;
 
