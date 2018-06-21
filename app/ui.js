@@ -1096,9 +1096,13 @@ const UI = {
 
         let msg;
         if (UI.getSetting('encrypt')) {
-            msg = _("Connected (encrypted) to ") + UI.desktopName;
+		var host=this._fb_name.substring(0,this._fb_name.indexOf(":"));
+		var user=this._fb_name.substring(this._fb_name.indexOf("(")+1,this._fb_name.indexOf(")"));
+            msg = _('Encrypted Remote Desktop Connection to ' + host + ' as ' + user); //+ UI.desktopName;
         } else {
-            msg = _("Connected (unencrypted) to ") + UI.desktopName;
+		var host=this._fb_name.substring(0,this._fb_name.indexOf(":"));
+		var user=this._fb_name.substring(this._fb_name.indexOf("(")+1,this._fb_name.indexOf(")"));
+            msg = _('Remote Desktop Connection to ' + host + ' as ' + user); // + UI.desktopName;
         }
         UI.showStatus(msg);
         UI.updateVisualState('connected');
@@ -1195,10 +1199,10 @@ const UI = {
         e.preventDefault();
 
         let inputElemUsername = document.getElementById('noVNC_username_input');
-        const username = inputElemUsername.value;
+        const username = inputElemUsername.value.trim();
 
         let inputElemPassword = document.getElementById('noVNC_password_input');
-        const password = inputElemPassword.value;
+        const password = inputElemPassword.value.trim();
         // Clear the input after reading the password
         inputElemPassword.value = "";
 
@@ -1689,7 +1693,9 @@ const UI = {
     updateDesktopName(e) {
         UI.desktopName = e.detail.name;
         // Display the desktop name in the document title
-        document.title = e.detail.name + " - " + PAGE_TITLE;
+	let host = UI.desktopName;
+	host = host.substring(0,host.indexOf(":"));
+        document.title = "Remote Desktop Connection to" + host;
     },
 
     bell(e) {
