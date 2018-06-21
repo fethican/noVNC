@@ -1166,7 +1166,7 @@ const UI = {
         e.preventDefault();
 
         const inputElem = document.getElementById('noVNC_password_input');
-        const password = inputElem.value;
+        const password = inputElem.value.trim();
         // Clear the input after reading the password
         inputElem.value = "";
         UI.rfb.sendCredentials({ password: password });
@@ -1614,9 +1614,10 @@ const UI = {
     },
 
     updateDesktopName: function(e) {
-        UI.desktopName = e.detail.name;
+	var host="";
+	host=name.substring(0,name.indexOf(":"));
         // Display the desktop name in the document title
-        document.title = e.detail.name + " - noVNC";
+        document.title = "Remote Desktop Connection to" + host;
     },
 
     bell: function(e) {
