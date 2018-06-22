@@ -1083,9 +1083,13 @@ const UI = {
 
         let msg;
         if (UI.getSetting('encrypt')) {
-            msg = _("Connected (encrypted) to ") + UI.desktopName;
+		var host=this._fb_name.substring(0,this._fb_name.indexOf(":"));
+		var user=this._fb_name.substring(this._fb_name.indexOf("(")+1,this._fb_name.indexOf(")"));
+            msg = _('Encrypted Remote Desktop Connection to ' + host + ' as ' + user); //+ UI.desktopName;
         } else {
-            msg = _("Connected (unencrypted) to ") + UI.desktopName;
+		var host=this._fb_name.substring(0,this._fb_name.indexOf(":"));
+		var user=this._fb_name.substring(this._fb_name.indexOf("(")+1,this._fb_name.indexOf(")"));
+            msg = _('Remote Desktop Connection to ' + host + ' as ' + user); // + UI.desktopName;
         }
         UI.showStatus(msg);
         UI.updateVisualState('connected');
